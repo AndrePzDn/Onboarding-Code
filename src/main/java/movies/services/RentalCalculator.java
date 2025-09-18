@@ -14,7 +14,7 @@ public class RentalCalculator {
     public RentalCalculatorResult calculateRentalsList(List<Rental> rentals) {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        ArrayList<RentalLineItem> lineItems = new ArrayList<>();
+        List<RentalLineItem> lineItems = new ArrayList<>();
 
         for (Rental rental: rentals) {
             MovieType moviePriceCode = rental.getMovie().getPriceCode();
