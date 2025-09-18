@@ -11,7 +11,7 @@ public class Movie {
     public Movie() { }
 
     public Movie(String title, int priceCode) {
-        if (title == null) {
+        if (title == null || title.isEmpty()) {
             throw new IllegalArgumentException("Invalid Movie Name");
         }
         this.title = title;
