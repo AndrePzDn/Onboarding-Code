@@ -16,7 +16,7 @@ public class DataManager<T> {
     }
 
     public void save(T data) {
-        this.strategy.save(data, filePath, classOfT);
+        this.strategy.save(data, filePath);
     }
 
     public T load() {

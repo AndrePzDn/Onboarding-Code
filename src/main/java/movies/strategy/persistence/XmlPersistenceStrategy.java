@@ -12,9 +12,9 @@ import jakarta.xml.bind.Unmarshaller;
 public class XmlPersistenceStrategy<T> implements LocalPersistenceStrategy<T> {
 
     @Override
-    public void save(T data, String filePath, Class<?> classOfT) {
+    public void save(T data, String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            JAXBContext context = JAXBContext.newInstance(classOfT);
+            JAXBContext context = JAXBContext.newInstance(data.getClass());
             Marshaller marshaller = context.createMarshaller();
 
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
