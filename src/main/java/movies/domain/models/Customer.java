@@ -20,11 +20,10 @@ public class Customer {
     @XmlElement(name = "rental")
     private List<Rental> rentals = new ArrayList<Rental>();
 
-    public Customer() {
-    }
+    public Customer() { }
 
     public Customer(String name) {
-        if (name == null) {
+        if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Invalid Customer Name");
         }
         this.name = name;

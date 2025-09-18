@@ -10,8 +10,8 @@ import movies.services.DataManager;
 public class Main {
     public static void main(String[] args) {
         DataManager<CustomerRecord> dm = new DataManager<>(
-                PersistenceType.JSON,
-                "./customers.json",
+                PersistenceType.XML,
+                "./customers.xml",
                 CustomerRecord.class);
 
         CustomerRecord instance = CustomerRecord.getInstance();
@@ -23,9 +23,9 @@ public class Main {
         customer.addRental(new Rental(new Movie("Zack Snyder's Justice League", 1), 5));
         customer.addRental(new Rental(new Movie("Terminator", 0), 1));
         customer.addRental(new Rental(new Movie("Soul", 2), 3));
-
         instance.add(customer);
-        instance.generalStatement();
+
+        System.out.println(instance.generalStatement());
 
         dm.save(instance);
     }

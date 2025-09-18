@@ -32,14 +32,6 @@ public class CustomerRecord {
         return instance;
     }
 
-    public List<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
-    }
-
     public void add(Customer customer) {
         for (Customer each : customers) {
             if (!each.getName().equals(customer.getName())) {
@@ -55,12 +47,15 @@ public class CustomerRecord {
         customers.add(customer);
     }
 
-    public void generalStatement() {
+    public String generalStatement() {
+        StringBuilder sb = new StringBuilder();
+
         for (Customer customer : customers) {
-            System.out.println(customer.statement());
-            System.out.println();
-            System.out.println("==========================================");
-            System.out.println();
+            sb.append(customer.statement())
+                    .append("\n")
+                    .append("==========================================")
+                    .append("\n");
         }
+        return sb.toString();
     }
 }
