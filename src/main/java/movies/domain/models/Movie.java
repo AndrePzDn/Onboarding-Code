@@ -1,7 +1,9 @@
 package movies.domain.models;
 
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Movie {
     @XmlElement
     private String title;

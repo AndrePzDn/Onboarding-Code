@@ -14,9 +14,9 @@ public class JsonPersistenceStrategy<T> implements LocalPersistenceStrategy<T> {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     @Override
-    public void save(T data, String filePath, Class<?> classOfT) {
+    public void save(T data, String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            String JSONString = gson.toJson(data, classOfT);
+            String JSONString = gson.toJson(data, data.getClass());
             writer.write(JSONString);
         } catch (IOException e) {
             System.out.println(e.getMessage());
