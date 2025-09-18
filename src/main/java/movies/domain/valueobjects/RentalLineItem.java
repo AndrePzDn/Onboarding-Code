@@ -5,7 +5,7 @@ public class RentalLineItem {
     private double amount;
 
     public RentalLineItem(String movieTitle, double amount) {
-        if (movieTitle == null) {
+        if (movieTitle == null || movieTitle.isEmpty()) {
             throw new IllegalArgumentException("Invalid Movie Title");
         }
         if (amount < 0) {
